@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=22253"), auto;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(#ffff31, #e4d00a);
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Quattrocento Sans', sans-serif;
+    font-size: 60px;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+}
+
+.moves-timer {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+.platform-container {
+    margin: auto;
+    margin-top: 25px;
+    width: 50%;
+    height: 75vh;
+    background-color: white;
+    box-shadow: 10px 10px 20px lightgrey;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card-deck {
+    width: 15%;
+    height: 25%;
+    margin: 30px;
+    padding: 1rem;
+    border-radius: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: lightblue;
+    box-shadow: 4px 4px 26px 0 lightblue;
+    border-radius: 5px;
+}
+
+#front-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.card-deck #front-face {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+    animation-name: turn;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+@keyframes turn {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(-180deg);
+    }
+}
+
+.card-deck #front-face.show {
+    font-size: 33px;
+}
+
+.card-deck #front-face.match {
+    cursor: default;
+    background: #E5F720;
+    font-size: 33px;
+    animation-name: rubberBand;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+}
+
+.card-deck #front-face.unmatched {
+    animation-name: pulse;
+    -webkit-backface-visibility: visible !important;
+    backface-visibility: visible !important;
+    animation-duration: .75s;
+    background: #E2043B;
+}
+
+.card-deck #front-face.disabled {
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.message {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 5px;
+    width: 85%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.play-again {
+    background-color: #141214;
+    padding: 2px;
+    font-size: 2px;
+    display: block;
+    margin: 0 auto;
+    width: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #FFFFFF;
+    border-radius: 5px;
+}
