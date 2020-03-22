@@ -75,10 +75,14 @@ function displayCard() {
 }
 
 function cardOpen(card) {
+    console.log(card);
     openedCards.push(card);
+    console.log(openedCards);
     let len = openedCards.length;
     if(len === 2) {
         moveCounter();
+        console.log(openedCards[0].type);
+        console.log(openedCards[1].type);
         if(openedCards[0].type === openedCards[1].type) {
             matched();
         } else {
