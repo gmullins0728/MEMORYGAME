@@ -1,8 +1,5 @@
 // Set all variables
-let cardElements = document.getElementsByClassName('game-card');
-let cardElementsArray = [...cardElements];
-let imgElements = document.getElementsByClassName('game-card-img');
-let imgElementsArray = [...imgElements];
+let cardElementsArray = [];
 let counter = document.getElementById('moveCounter');
 let timer = document.getElementById('timer');
 let modalElement = document.getElementById('gameOverModal');
@@ -17,36 +14,15 @@ let second = 0,
     interval,
     totalGameTime;
 
-function shuffle(array) {
-    let currentIndex = array.length,
-        temporaryValue,
-        randomIndex;
-
-    while (currentIndex !==0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
 
 // Start Game
 function startGame() {
-    //shuffle cards
-    let shuffledImages = shuffle(imgElementsArray);
 
+    let cardElements = document.getElementsByClassName('game-card');
 
-    for(i=0; i<shuffledImages.length; i++) {
-        //remove all images from previous games from each card (if any)
-        cardElements[i].innerHTML = "";
+    cardElementsArray = [...cardElements];
 
-        //add the shuffled images to each card
-        cardElements[i].appendChild(shuffledImages[i]);
-        cardElements[i].type = `${shuffledImages[i].alt}`;
-
+    for(i = 0; i < cardElements.length; i++) {
         //remove all extra classes for game play
         cardElements[i].classList.remove("show", "open", "match", "disabled");
         cardElements[i].children[0].classList.remove("show-img");
@@ -75,15 +51,12 @@ function displayCard() {
 }
 
 function cardOpen(card) {
-    console.log(card);
     openedCards.push(card);
-    console.log(openedCards);
     let len = openedCards.length;
+
     if(len === 2) {
         moveCounter();
-        console.log(openedCards[0].type);
-        console.log(openedCards[1].type);
-        if(openedCards[0].type === openedCards[1].type) {
+        if(openedCards[0].innerHTML === openedCards[1].innerHTML) {
             matched();
         } else {
             unmatched();
@@ -92,12 +65,13 @@ function cardOpen(card) {
 }
 
 function matched() {
-    openedCards[0].classList.add("match");
-    openedCards[1].classList.add("match");
+    openedCards[0].classList.add("match", "disabled");
+    openedCards[1].classList.add("match", "disabled");
     openedCards[0].classList.remove("show", "open");
     openedCards[1].classList.remove("show", "open");
     matchedCards.push(openedCards[0]);
     matchedCards.push(openedCards[1]);
+    // disableMatched();
     openedCards = [];
     if(matchedCards.length == 12) {
         endGame();
@@ -107,32 +81,22 @@ function matched() {
 function unmatched() {
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
-    disable();
     setTimeout(function() {
-        openedCards[0].classList.remove("show", "open", "unmatched");
-        openedCards[1].classList.remove("show", "open", "unmatched");
+        openedCards[0].classList.remove("show", "open", "unmatched", "disabled");
+        openedCards[1].classList.remove("show", "open", "unmatched", "disabled");
         openedCards[0].children[0].classList.remove('show-img');
         openedCards[1].children[0].classList.remove('show-img');
-        enable();
         openedCards = [];
         
     }, 1100)
 }
 
-function disable() {
-    cardElementsArray.filter((card, i, cardElementsArray) => {
-        card.classList.add('disabled');
-    })
-}
+// function disableMatched() {
+//     for(let i=0; i<matchedCards.length; i++) {
+//         matchedCards[i].classList.add('disabled');
+//      }
 
-function enable() {
-    cardElementsArray.filter((card, i, cardElementsArray) => {
-        card.classList.remove('disabled');
-        for(let i=0; i<matchedCards.length; i++) {
-            matchedCards[i].classList.add('disabled');
-        }
-    })
-}
+// }
 
 function moveCounter() {
     moves++;
@@ -176,8 +140,13 @@ function endGame() {
     matchedCards = [];
 }
 
-
 function playAgain() {
     modalElement.classList.remove("show-modal");
+    
+    //regenerate card table with currentTheme
+    generateCardTable(savedTheme);
     startGame();
 }
+
+
+
