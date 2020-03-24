@@ -1,5 +1,3 @@
-// 
-
 class Image {
     constructor(src, alt)
     {

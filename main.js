@@ -22,7 +22,7 @@ function startGame() {
 
     cardElementsArray = [...cardElements];
 
-    //Loop to add even listener to each card
+    //Loop to add event listener to each card
     for(let i = 0; i < cardElementsArray.length; i++) {
         cardElementsArray[i].addEventListener("click", displayCard)
     }

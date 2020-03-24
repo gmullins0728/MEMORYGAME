@@ -267,7 +267,7 @@ h1 {
     #headline {
         font-size: 3em;
     }
-    .overlay-text {
+    .text, .theme-text {
         font-size: 1em;
     }
     h1 {
@@ -283,7 +283,7 @@ h1 {
 }
 /* Inbetween mobile and tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    .overlay-text {
+    .text, .theme-text {
         font-size: 2em;
     }
     .game-card, .game-card-img {
@@ -296,7 +296,7 @@ h1 {
 }
 /* Tablets to desktop */
 @media only screen and (min-width: 1024px) {
-    .overlay-text {
+    .text .theme-text {
         font-size: 3em;
     }
     
