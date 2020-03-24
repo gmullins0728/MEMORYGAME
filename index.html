@@ -11,13 +11,15 @@
 </head>
 <body>
     <header>
-            <div class="overlay-text">Click a Theme</div>
+        <div class="theme-text">Click a Theme</div>
         <div class = "btn">
-            <div id ="pokemon-btn" class="overlay-text" onclick="generateCardTable('pokemon')">Pokemon</div>
-            <div id ="gundam-btn" class="overlay-text" onclick="generateCardTable('gundam')">Gundam</div>
-            <div id ="DBZ-btn" class="overlay-text" onclick="generateCardTable('DBZ')">Dragonball Z</div>
-            <div id ="easter-btn" class="overlay-text" onclick="generateCardTable('easter')">Easter</div>
+            <div id="pokemon-btn" class ="text"  onclick="generateCardTable('pokemon')">Pokemon</div>
+            <div id ="gundam-btn" class="text"   onclick="generateCardTable('gundam')">Gundam</div>
+            <div id ="DBZ-btn" class="text"   onclick="generateCardTable('DBZ')">Dragonball Z</div>
+            <div id ="easter-btn" class="text"   onclick="generateCardTable('easter')">Easter</div>
         </div> 
+
+        <div>
         <h1>MATCHMAKERS</h1>
     </header>
         <div class="game-status-details">
@@ -50,10 +52,11 @@
         </div>
     <script src="main.js"></script>
     <script>
-
+            
         (function () {
             // load default theme
             generateCardTable(defaultTheme);
+            
         }());
 
     </script>
