@@ -8,7 +8,7 @@ body {
     cursor: url("http://www.rw-designer.com/cursor-extern.php?id=17688"), auto;
 }
 
-.overlay-text{
+.overlay-text {
     margin-top: 0;
     font-family: 'Quattrocento Sans', sans-serif;
     color: #FFFFFF;
@@ -30,7 +30,7 @@ body {
 }
 
 h1 {
-    margin:auto;
+    margin: auto;
     font-family: 'Quattrocento Sans', sans-serif;
     color: #FFFFFF;
     text-align: center;
@@ -55,14 +55,15 @@ h1 {
     width: 100%;
 }
 
-.move-counter, .timer {
+.move-counter,
+.timer {
     font-size: 1.3em;
 }
 
 .game-board {
     max-width: 50%;
     margin: auto;
-    background-color:white;
+    background-color: white;
     border-radius: 1em;
     box-shadow: 0 5px 5px #808080;
 }
@@ -115,29 +116,29 @@ h1 {
     text-align: center;
 }
 
-.start-button { 
-	padding: 0.7em 1.4em;
+.start-button {
+    padding: 0.7em 1.4em;
 }
 
 .red-button {
-	-webkit-box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
-	box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, rgb(184, 31, 4)), color-stop(1, #795548));
-	border-radius: 0.3em;
-	border: 1px solid #6D4C41;
-	font-size: 1.2em;
-	font-weight: bold;
-	text-shadow: 0px 1px 0px #8D6E63;
+    -webkit-box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+    box-shadow: 3px 4px 0px 0px rgb(145, 7, 7);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, rgb(184, 31, 4)), color-stop(1, #795548));
+    border-radius: 0.3em;
+    border: 1px solid #6D4C41;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-shadow: 0px 1px 0px #8D6E63;
 }
 
 .red-button:hover {
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, rgb(184, 31, 4)));
-	background-color: #795548;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #795548), color-stop(1, rgb(184, 31, 4)));
+    background-color: #795548;
 }
 
 .red-button:active {
-	position: relative;
-	top: 0.15em;
+    position: relative;
+    top: 0.15em;
 }
 
 .red-button:focus {
@@ -223,14 +224,32 @@ h1 {
 /* Animations */
 /* Turn Cards*/
 @keyframes animateShowImage {
-    0% { transform: rotateY(180deg); opacity: 0;}
-    100%{ transform: rotateY(0); opacity: 1; }
+    0% {
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
 }
+
 /* Matched cards move */
 @keyframes dance {
-    0%, 100% { transform: rotate(0);}
-    25% { transform: rotate(-5deg);}
-    75% { transform: rotate(5deg);}
+
+    0%,
+    100% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
 }
 
 
@@ -241,52 +260,65 @@ h1 {
         padding: 0.3em 0.3em;
         width: 50%;
     }
+
     #headline {
         font-size: 3em;
     }
+
     .overlay-text {
         font-size: 1em;
     }
+
     h1 {
         font-size: 3em;
     }
-    .game-card, .game-card-img {
+
+    .game-card,
+    .game-card-img {
         width: 3em;
         height: 4em;
     }
+
     .modal-body {
         padding: 0 2em;
     }
 }
+
 /* Inbetween mobile and tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .overlay-text {
         font-size: 2em;
     }
-    .game-card, .game-card-img {
+
+    .game-card,
+    .game-card-img {
         width: 5.5em;
         height: 6.5em;
     }
+
     .modal-body {
         padding: 0 2.5em;
     }
 }
+
 /* Tablets to desktop */
 @media only screen and (min-width: 1024px) {
     .overlay-text {
         font-size: 3em;
     }
-    
+
     .game-status-details {
         display: block;
     }
+
     .move-counter,
     .timer,
     .restart-btn {
         width: initial;
     }
 
-    .game-card, .game-card-img {
+    .game-card,
+    .game-card-img {
         width: 8em;
         height: 10em;
     }
