@@ -19,7 +19,6 @@ body {
     text-decoration: none;
 }
 
-
 .text {
     margin-top: 0;
     font-family: 'Quattrocento Sans', sans-serif;
@@ -31,12 +30,9 @@ body {
     text-decoration: none;
 }
 
-.text:hover,
-.text:focus {
+.text.active, 
+.text:hover {
     color: black;
-}
-
-.text:active {
     transform: translateY(2px);
     filter: saturate(150%);
 }
@@ -95,7 +91,7 @@ h1 {
 }
 
 
-.bg-poke {
+.bg-pokeball {
     background-image: url(./img/pokemon/pokeball.png);
 }
 
@@ -121,7 +117,6 @@ h1 {
     border-radius: 0.3em;
     margin: 0.8em;
     box-shadow: 2px 0 10px #212121;
-    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=40719"), auto;
 }
 
 .game-card-img {
@@ -274,17 +269,22 @@ h1 {
         font-size: 3em;
     }
     .game-card, .game-card-img {
-        width: 3em;
-        height: 4em;
+        width: 3.5em;
+        height: 4.5em;
+        
     }
     .modal-body {
         padding: 0 2em;
     }
 }
-/* Inbetween mobile and tablet */
+/* In between mobile and tablet */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .text, .theme-text {
         font-size: 2em;
+    }
+    .h1 {
+        text-align: center;
+        font-size: 4em;
     }
     .game-card, .game-card-img {
         width: 5.5em;

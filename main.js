@@ -14,7 +14,6 @@ let second = 0,
     interval,
     totalGameTime;
 
-
 // Start Game
 function startGame() {
     // Set variables locally - cards array holds all cards
@@ -93,7 +92,6 @@ function moveCounter() {
         hour = 0;
         startTimer();
     }
-
 }
 
 // Starts timer

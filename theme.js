@@ -1,15 +1,12 @@
 class Image {
-    constructor(src, alt)
-    {
+    constructor(src, alt) {
         this.src = src;
         this.alt = alt;
     }
 }
 
-
 class Theme {
-    constructor()
-    {
+    constructor() {
         this.cardBgClass = "";
         this.images = [];
     }
@@ -32,8 +29,6 @@ const NUM_ROWS = 3;
 const NUM_COL = 4;
 
 function generateCardTable(themeName) {
-
-    console.log(themeName);
     
     // Get selected theme
     var theme = getTheme(themeName);
@@ -60,7 +55,6 @@ function generateCardTable(themeName) {
         // create a td and append to tr
         for (var j = 0; j < NUM_COL; j++) {
             
-            // if at the end of the array, reshuffle cards 
             if (cardNum == shuffledCards.length) {
                 shuffledCards = shuffle(theme.images);
                 
@@ -78,8 +72,6 @@ function generateCardTable(themeName) {
             img.setAttribute("src", card.src);
             img.setAttribute("alt", card.alt);
             
-            console.log(card);
-
             td.appendChild(img);
 
             tRow.appendChild(td);
@@ -88,16 +80,12 @@ function generateCardTable(themeName) {
         }
         
         tBody.appendChild(tRow);
-        
     }
-
-    table.appendChild(tBody);	
-    
-    // append the table to the div
-    var divContainer = document.getElementById("card-table");
-    divContainer.innerHTML = "";
-    divContainer.appendChild(table);
-
+        table.appendChild(tBody);	
+        // append the table to the div
+        var divContainer = document.getElementById("card-table");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
 }	
 
 function shuffle(array) {
@@ -112,11 +100,8 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
     return array;
 }
-
-
 
 function getTheme(themeName) {
 
@@ -125,7 +110,7 @@ function getTheme(themeName) {
     switch (themeName)
     {
         case "pokemon":
-            theme.setCardBgClass('bg-poke');
+            theme.setCardBgClass('bg-pokeball');
             theme.addImage('img/pokemon/bulbasaur.png', 'bulbasaur');
             theme.addImage('img/pokemon/charizard.png', 'charizard');
             theme.addImage('img/pokemon/evee.png', 'evee');
@@ -161,7 +146,6 @@ function getTheme(themeName) {
             theme.addImage('img/easter/groovyegg.png', 'groovyegg');
             break;            
     }
-
-    return theme;
+        return theme;
 }
 
