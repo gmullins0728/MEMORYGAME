@@ -4,11 +4,15 @@ html {
 
 body {
     font-family: monospace, Arial, Helvetica, sans-serif;
-    background: radial-gradient(#ffff31, #e4d00a);
+    background: radial-gradient(#ffff31, #06816d);
     cursor: url("http://www.rw-designer.com/cursor-extern.php?id=17688"), auto;
 }
 
+<<<<<<< HEAD
 .overlay-text {
+=======
+.theme-text{
+>>>>>>> origin/Master
     margin-top: 0;
     font-family: 'Quattrocento Sans', sans-serif;
     color: #FFFFFF;
@@ -17,6 +21,28 @@ body {
     font-size: 3em;
     padding: 0.2em;
     text-decoration: none;
+}
+
+
+.text {
+    margin-top: 0;
+    font-family: 'Quattrocento Sans', sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: 2px 2px #ff0000;
+    font-size: 3em;
+    padding: 0.2em;
+    text-decoration: none;
+}
+
+.text:hover,
+.text:focus {
+    color: black;
+}
+
+.text:active {
+    transform: translateY(2px);
+    filter: saturate(150%);
 }
 
 #headline {
@@ -100,6 +126,7 @@ h1 {
     border-radius: 0.3em;
     margin: 0.8em;
     box-shadow: 2px 0 10px #212121;
+    cursor: url("http://www.rw-designer.com/cursor-extern.php?id=40719"), auto;
 }
 
 .game-card-img {

@@ -1,4 +1,4 @@
-// Set all variables
+// Set all variables - globally
 let cardElementsArray = [];
 let counter = document.getElementById('moveCounter');
 let timer = document.getElementById('timer');
@@ -17,23 +17,17 @@ let second = 0,
 
 // Start Game
 function startGame() {
-
+    // Set variables locally - cards array holds all cards
     let cardElements = document.getElementsByClassName('game-card');
 
     cardElementsArray = [...cardElements];
 
-    for(i = 0; i < cardElements.length; i++) {
-        //remove all extra classes for game play
-        cardElements[i].classList.remove("show", "open", "match", "disabled");
-        cardElements[i].children[0].classList.remove("show-img");
-    }
-
-    //listen for events on the cards
+    //Loop to add even listener to each card
     for(let i = 0; i < cardElementsArray.length; i++) {
         cardElementsArray[i].addEventListener("click", displayCard)
     }
 
-    //reset moves
+    //Reset moves
     moves = 0;
     counter.innerText = `${moves} move(s)`;
 
@@ -42,14 +36,14 @@ function startGame() {
     clearInterval(interval);
 }
 
+// Shows the front image of cards
 function displayCard() {
     this.children[0].classList.toggle('show-img');
-    this.classList.toggle("open");
-    this.classList.toggle("show");
     this.classList.toggle("disabled");
     cardOpen(this);
 }
 
+// Checks if cards are a match
 function cardOpen(card) {
     openedCards.push(card);
     let len = openedCards.length;
@@ -64,40 +58,31 @@ function cardOpen(card) {
     }
 }
 
+// When the cards match - disable click when matched
 function matched() {
-    openedCards[0].classList.add("match", "disabled");
-    openedCards[1].classList.add("match", "disabled");
-    openedCards[0].classList.remove("show", "open");
-    openedCards[1].classList.remove("show", "open");
+    openedCards[0].classList.add("match");
+    openedCards[1].classList.add("match");
     matchedCards.push(openedCards[0]);
     matchedCards.push(openedCards[1]);
-    // disableMatched();
     openedCards = [];
     if(matchedCards.length == 12) {
         endGame();
     }
 }
 
+// When the cards do not match 
 function unmatched() {
-    openedCards[0].classList.add("unmatched");
-    openedCards[1].classList.add("unmatched");
     setTimeout(function() {
-        openedCards[0].classList.remove("show", "open", "unmatched", "disabled");
-        openedCards[1].classList.remove("show", "open", "unmatched", "disabled");
+        openedCards[0].classList.remove("disabled");
+        openedCards[1].classList.remove("disabled");
         openedCards[0].children[0].classList.remove('show-img');
         openedCards[1].children[0].classList.remove('show-img');
         openedCards = [];
         
-    }, 1100)
+    }, 1000)
 }
 
-// function disableMatched() {
-//     for(let i=0; i<matchedCards.length; i++) {
-//         matchedCards[i].classList.add('disabled');
-//      }
-
-// }
-
+// Counts and keeps track of moves made
 function moveCounter() {
     moves++;
     counter.innerHTML = `${moves} move(s)`;
@@ -111,6 +96,7 @@ function moveCounter() {
 
 }
 
+// Starts timer
 function startTimer() {
     interval = setInterval(function(){
         timer.innerHTML = `${minute} mins ${second} secs`;
@@ -126,6 +112,7 @@ function startTimer() {
     }, 1000)
 }
 
+// Once the game is completed - pop up message
 function endGame() {
     clearInterval(interval);
     totalGameTime = timer.innerHTML;
@@ -133,20 +120,22 @@ function endGame() {
     //show modal on game end
     modalElement.classList.add("show-modal");
     
-    //show totalGameTime and moves in modal
+    //show total time and total moves in modal
     totalGameTimeElement.innerHTML = totalGameTime;
     totalGameMovesElement.innerHTML = moves;
 
     matchedCards = [];
 }
 
+// Play again button
 function playAgain() {
     modalElement.classList.remove("show-modal");
     
-    //regenerate card table with currentTheme
+    // Regenerate card table with current theme
     generateCardTable(savedTheme);
     startGame();
 }
+
 
 
 

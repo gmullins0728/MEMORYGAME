@@ -1,3 +1,5 @@
+// 
+
 class Image {
     constructor(src, alt)
     {
@@ -27,6 +29,7 @@ class Theme {
 var defaultTheme = "pokemon";
 var savedTheme = "";
 
+// Create layout of rows and columns
 const NUM_ROWS = 3;
 const NUM_COL = 4;
 
@@ -163,5 +166,4 @@ function getTheme(themeName) {
 
     return theme;
 }
-
 
