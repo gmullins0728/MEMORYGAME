@@ -30,11 +30,14 @@ body {
     text-decoration: none;
 }
 
-.text.active, 
-.text:hover {
+.text.active {
     color: black;
     transform: translateY(2px);
     filter: saturate(150%);
+}
+
+.text:hover {
+    color: rgb(233, 229, 24);
 }
 
 #headline {
